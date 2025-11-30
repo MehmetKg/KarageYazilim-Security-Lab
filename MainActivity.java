@@ -1,4 +1,4 @@
-package com.example.karageyazilimsecuritylab; // Senin paket ismin
+package com.example.karageyazilimsecuritylab; 
 
 import android.os.Build;
 import android.os.Bundle;
@@ -35,10 +35,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText etCommand;
     private ScrollView scrollView;
 
-    // Geçmiş komutlar
     private final List<String> commandHistory = new ArrayList<>();
 
-    // 50 İş parçacıklı havuz (Hız için)
+  
     private final ExecutorService executor = Executors.newFixedThreadPool(50);
 
     @Override
@@ -46,17 +45,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Arayüz elemanlarını bağla
         tvConsole = findViewById(R.id.tvConsole);
         etCommand = findViewById(R.id.etCommand);
         scrollView = findViewById(R.id.scrollView);
         Button btnSubmit = findViewById(R.id.btnSubmit);
 
-        // Başlangıç Mesajı
+        
         printColor("--- KARAGE YAZILIM LAB v3.1 [ONLINE] ---", "#00FF00");
         printColor("System initialized. Type 'help' for tools.", "#CCCCCC");
 
-        // Klavyeden "Git" veya "Enter" tuşu dinleme
+      
         etCommand.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_GO || actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_ACTION_SEND) {
                 handleInput();
@@ -65,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         });
 
-        // Buton dinleme
+        
         btnSubmit.setOnClickListener(v -> handleInput());
     }
 
@@ -73,8 +71,8 @@ public class MainActivity extends AppCompatActivity {
         String input = etCommand.getText().toString().trim();
         if (input.isEmpty()) return;
 
-        etCommand.setText(""); // Kutuyu temizle
-        printColor("root@karage:~$ " + input, "#FFFFFF"); // Komutu ekrana yaz
+        etCommand.setText(""); 
+        printColor("root@karage:~$ " + input, "#FFFFFF");
         commandHistory.add(input);
 
         String[] parts = input.split("\\s+");
@@ -123,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    // --- ÖNEMLİ DÜZELTME: EKRANA YAZDIRMA FONKSİYONU ---
+   
     // Bu metod UI Thread üzerinde çalışmaya zorlar.
     private void printColor(String text, String colorHex) {
         runOnUiThread(() -> {
