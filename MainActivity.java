@@ -149,7 +149,10 @@ public class MainActivity extends AppCompatActivity {
         executor.execute(() -> {
             try {
                 // -c 3: 3 paket gönder
-                Process p = Runtime.getRuntime().exec("ping -c 3 " + host);
+                // girdiyi sadece argüman olarak kullanması için ProcessBuilder kullanılmıştır
+                ProcessBuilder pb = new ProcessBuilder("ping", "-c", "3", host);
+                Process p = pb.start();
+
                 BufferedReader in = new BufferedReader(new InputStreamReader(p.getInputStream()));
                 String line;
                 while ((line = in.readLine()) != null) {
