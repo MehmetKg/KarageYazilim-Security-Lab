@@ -37,8 +37,12 @@ public class MainActivity extends AppCompatActivity {
 
     private final List<String> commandHistory = new ArrayList<>();
 
-  
-    private final ExecutorService executor = Executors.newFixedThreadPool(50);
+    
+    int cores = Runtime.getRuntime().availableProcessors();
+
+    int threadsN =  Math.min(cores * 4, 20);
+    // çekirdek sayısına göre thread sayısı belirleniyor max 20 olacak şekilde sınırlandırıldı
+    private final ExecutorService executor = Executors.newFixedThreadPool(threadsN);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
