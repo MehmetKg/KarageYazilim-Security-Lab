@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#0C0C0C"
+    android:keepScreenOn="true">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#000000"
+        android:fillViewport="true">
+
+        <TextView
+            android:id="@+id/tvConsole"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:padding="12dp"
+            android:text="Karage Security Kernel Loaded...\nReady for instructions."
+            android:textColor="#00FF00"
+            android:textSize="13sp"
+            android:textIsSelectable="true"
+            android:lineSpacingExtra="3dp"/>
+    </ScrollView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#333333"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#1A1A1A"
+        android:padding="5dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="root@karage:~# "
+            android:textColor="#FF4444"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:textSize="14sp"
+            android:paddingStart="5dp"
+            android:paddingEnd="2dp"/>
+
+        <EditText
+            android:id="@+id/etCommand"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:fontFamily="monospace"
+            android:hint="Komut..."
+            android:textColor="#FFFFFF"
+            android:textColorHint="#555555"
+            android:inputType="textNoSuggestions|textVisiblePassword"
+            android:imeOptions="actionGo"
+            android:singleLine="true"
+            android:paddingStart="5dp"/>
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="EXEC"
+            android:textColor="#000000"
+            android:backgroundTint="#00FF00"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+</LinearLayout>
