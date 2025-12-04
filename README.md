@@ -1,129 +1,83 @@
-# 🛡️ Karage Security Lab v7.0 [ULTIMATE]
+# 🛡️ Karage Security Lab v7.0 [ARMAGEDDON SUITE]
 
-**Android İçin Root Gerektirmeyen, Yeni Nesil Siber Güvenlik ve Sızma Testi Terminali.**
+**Android Cihazlar İçin Root Yetkisi Gerektirmeyen, Gelişmiş Siber Güvenlik ve İstihbarat Terminali.**
 
-![Java](https://img.shields.io/badge/Language-Java-orange?style=for-the-badge&logo=java) ![Platform](https://img.shields.io/badge/Platform-Android-green?style=for-the-badge&logo=android) ![License](https://img.shields.io/badge/License-GPLv3-blue?style=for-the-badge) ![Root](https://img.shields.io/badge/Root-Not%20Required-brightgreen?style=for-the-badge)
+[![Java](https://img.shields.io/badge/Language-Java-orange?style=for-the-badge&logo=java)]() [![Platform](https://img-shields.io/badge/Platform-Android-green?style=for-the-badge&logo=android)]() [![Root](https://img.shields.io/badge/Root-Not%20Required-brightgreen?style=for-the-badge)]() [![Tools](https://img.shields.io/badge/Tools-40%2B%20Modules-blue?style=for-the-badge)]()
 
-## 📖 Proje Hakkında
+## 💡 Proje Mimarisi ve Güç Çekirdeği
 
-**Karage Security Lab (KSL)**, mobil cihazları tam donanımlı bir siber güvenlik istasyonuna dönüştüren açık kaynaklı bir terminal emülatörüdür. Termux gibi ağır Linux emülasyonlarına ihtiyaç duymadan, **Saf Java** gücüyle ve Android API sınırlarını zorlayarak maksimum saldırı ve savunma kapasitesi sunar.
+Karage Security Lab, piyasadaki basit terminal uygulamalarından farklıdır. Uygulamanın gücü, **Java Socket** motorunu, Android sistem API'leriyle birleştiren hibrit mimarisinden gelir:
 
-**Temel Felsefe:** "Cebinizdeki Siber Ordu." Root yetkisine ihtiyaç duymadan gerçek siber güvenlik araçları.
-
----
-
-## ⚙️ Nasıl Çalışır? (Teknik Mimari)
-
-Uygulama arka planda 3 temel motor üzerinde çalışır:
-
-1.  **Multi-Threading Motoru:** Ağ taraması ve yük testleri gibi ağır işlemler, **50 eşzamanlı iş parçacığına** sahip bir havuzda işlenir. Uygulama donmaz.
-2.  **Socket & HTTP Motoru:** Java `Socket` ve `DatagramSocket` sınıfları ile ham TCP/UDP paketleri oluşturulur. `HttpURLConnection` ile web manipülasyonu yapılır.
-3.  **Sistem & Donanım Erişimi:** Android sistem dosyaları (`/proc/`) ve donanım sensörleri okunarak derin analiz yapılır.
+* **⚡ Multi-Threading (Çoklu İş Parçacığı):** Ağ taraması (`portscan`, `flood`) gibi zaman alan tüm işlemler, 50 iş parçacığına sahip (`ExecutorService`) bir havuza gönderilir. Bu, uygulamanın **asla donmamasını** ve saniyeler içinde binlerce işlem yapmasını garanti eder.
+* **🔌 Native Motor:** Tüm ağ ve web istekleri, harici bir binary dosyaya ihtiyaç duymadan, saf Java `Socket` ve `HttpURLConnection` sınıfları üzerinden yönetilir.
+* **Procfs Erişimi:** Termux gibi, Android'in alt katmanındaki `/proc/net/arp` gibi sistem dosyalarını okuyarak gizli ağ bilgilerini çeker.
 
 ---
 
-## 🛠️ Araçlar ve Kullanım Kılavuzu
+## 🛠️ Modüller ve Kullanım Kılavuzu
 
-### 1. 🌐 Ağ ve Keşif (Network Recon)
-* **`portscan`** (Kullanım: `portscan 192.168.1.1`)
-    * Hedef IP üzerindeki kritik 20 TCP portuna çoklu thread ile bağlantı isteği atar ve açık portları listeler.
-* **`wol`** (Kullanım: `wol 00:11:22:33:44:55`)
-    * Yerel ağa UDP "Magic Packet" göndererek uyuyan bilgisayarları açar (Wake-on-LAN).
-* **`arp`**
-    * Cihazın önbelleğindeki (ARP Cache) diğer cihazların IP ve MAC adreslerini listeler.
-* **`nc`** (Kullanım: `nc 4444`)
-    * Telefonu bir TCP sunucusuna dönüştürür (Netcat Listener). Gelen bağlantıları kabul eder ve mesajları okur.
-* **`trace`** (Kullanım: `trace google.com`)
-    * Paketin hedefe giderken izlediği yolu (Hop noktaları) analiz eder.
-* **`ping`**, **`dns`**, **`myip`**
-    * Temel bağlantı testleri, DNS sorgulama ve dış IP öğrenme araçları.
+Uygulama, saldırı ve savunma senaryolarına yönelik 10 ana modüle ayrılmıştır.
 
-### 2. 🕷️ Web Sızma Testi (Web Pentest)
-* **`waf`** (Kullanım: `waf site.com`)
-    * Sitede Cloudflare, ModSecurity gibi güvenlik duvarları olup olmadığını tespit eder.
-* **`lfi`** (Kullanım: `lfi site.com?p=`)
-    * Sunucuda yerel dosya okuma (Local File Inclusion) açığı arar (`/etc/passwd` vb.).
-* **`buster`** (Kullanım: `buster site.com`)
-    * Sitedeki gizli klasörleri (backup, db, admin, logs) brute-force yöntemiyle bulur.
-* **`spider`** (Kullanım: `spider site.com`)
-    * Site haritasını çıkarır ve sayfadaki tüm linkleri toplar.
-* **`admin`** (Kullanım: `admin site.com`)
-    * WordPress, Joomla gibi sistemlerin yönetim panellerini otomatik tarar.
-* **`headers`**
-    * HTTP başlıklarını analiz ederek güvenlik açıklarını raporlar.
+### 1. ⚔️ Ağ ve Hardcore Saldırıları
 
-### 3. 🔴 Red Team & Hardcore (İleri Seviye Saldırı)
-* **`takeover`** (Kullanım: `takeover site.com`)
-    * Subdomain Takeover (Alan adı ele geçirme) zafiyetini kontrol eder.
-* **`blindsqli`** (Kullanım: `blindsqli site.com?id=`)
-    * Zaman tabanlı (Time-Based) Blind SQL Injection testi yapar (Sunucuyu uyutma taktiği).
-* **`vuln`** (Kullanım: `vuln site.com`)
-    * Sunucuda unutulmuş kritik dosyaları (`.env`, `.git`, `backup.sql`) avlar.
-* **`flood`** (Kullanım: `flood site.com`)
-    * Hedef siteye HTTP Stress Testi (Yük testi) uygular.
-* **`crack`** (Kullanım: `crack 5f4dcc3...`)
-    * MD5 ve SHA1 hashlerini dahili sözlük saldırısı ile kırmaya çalışır.
-* **`knocker`** (Kullanım: `knocker 192.168.1.5`)
-    * Port Knocking (Gizli port açma) sekansını uygular.
+| Komut | Kullanım Örneği | Nasıl Çalışır? (Teknik Açıklama) |
+| :--- | :--- | :--- |
+| **`portscan`** | `portscan 192.168.1.1` | Hedef IP'de kritik portlara çoklu thread üzerinden TCP bağlantı isteği atar (`Socket.connect`). |
+| **`wol`** | `wol AA:BB:CC:DD:EE:FF` | Yerel ağa UDP "Magic Packet" göndererek kapalı bir bilgisayarı uzaktan başlatır. |
+| **`nc`** | `nc 4444` | Telefonu bir **TCP Sunucusu** yapar (`ServerSocket`) ve dışarıdan gelen bağlantıları dinler. |
+| **`arp`** | `arp` | Cihazın önbelleğindeki (ARP Cache) diğer cihazların IP ve MAC adreslerini listeler. |
+| **`flood`** | `flood hedef.com` | Hedef siteye eşzamanlı HTTP/S GET istekleri göndererek Yük Testi (Stress Test) yapar. |
+| **`trace`** | `trace google.com` | Paketin hedefe giderken izlediği tüm hop noktalarını kaydeder. |
 
-### 4. 🕵️‍♂️ OSINT & İstihbarat
-* **`scan`** (Kullanım: `scan kullaniciadi`)
-    * **Sherlock Modülü:** 25+ popüler platformda kullanıcı adı taraması yapar.
-* **`email`** (Kullanım: `email test@mail.com`)
-    * E-postanın Gravatar profili olup olmadığını analiz eder (Gerçek kişi doğrulaması).
-* **`phone`** (Kullanım: `phone +90555...`)
-    * Telefon numarasını analiz eder, WhatsApp/Telegram direkt linklerini üretir.
-* **`fakeid`**
-    * Sosyal mühendislik testleri için tutarlı sahte kimlik verisi üretir.
+### 2. 🛡️ Web Zafiyet Avcılığı
 
-### 5. 🧅 Dark Web (Tor Network)
-* **`onion`** (Kullanım: `onion site.onion`)
-    * `.onion` sitelerinin kaynak kodunu Tor Gateway üzerinden çeker.
-* **`market`** (Kullanım: `market database`)
-    * Dark Web arama motorlarında illegal market/forum araması yapar.
-* **`torcheck`**
-    * Cihazın Tor ağına güvenli bir şekilde bağlı olup olmadığını kontrol eder.
+| Komut | Kullanım Örneği | Nasıl Çalışır? |
+| :--- | :--- | :--- |
+| **`takeover`** | `takeover sub.site.com` | Subdomain Takeover zafiyetini (CNAME kaydının boşta kalmasını) kontrol eder. |
+| **`blindsqli`** | `blindsqli site.com?id=1` | Sunucuya `SLEEP(5)` (uyuma) komutu enjekte eder. Sunucunun gecikmeli yanıt verip vermediğini analiz eder. |
+| **`lfi`** | `lfi site.com?page=` | **Local File Inclusion** zafiyetini arar (`../../etc/passwd` payloadları dener). |
+| **`waf`** | `waf site.com` | Hedef sitenin Cloudflare, ModSecurity gibi bir **Güvenlik Duvarı** tarafından korunup korunmadığını HTTP yanıt kodları ile tespit eder. |
+| **`cms`** | `cms site.com` | Sitenin **WordPress, Joomla** veya **Drupal** olup olmadığını kaynak koddan analiz eder. |
+| **`vuln`** | `vuln site.com` | Sunucuda unutulmuş kritik dosyaları (`.env`, `.git/config`, `backup.sql`) arar. |
+| **`buster`** | `buster site.com` | Sitedeki gizli dizinleri ve klasörleri bulur. |
 
-### 6. 📡 Spy & Fiziksel Güvenlik (Hardware)
-* **`ble`**
-    * **IoT Radar:** Etraftaki Bluetooth cihazları, AirTag'leri ve Akıllı Saatleri tespit eder.
-* **`emf`**
-    * **Böcek Arama:** Manyetik sensörü kullanarak duvardaki gizli kamera/mikrofonları (metal) bulur.
-* **`stego`** (Kullanım: `stego hide resim.png mesaj`)
-    * Bir resim dosyasının içine gizli metin saklar ve okur.
-* **`mask`**
-    * Oltalama (Phishing) testleri için maskelenmiş URL üretir.
+### 3. 🔦 Spy & Fiziksel Güvenlik
 
-### 7. 🦠 Malware Simülasyonu & Kriptografi
-* **`eicar`**: Antivirüs test dosyası oluşturur.
-* **`payload`**: Reverse Shell (Sızma) kodları üretir.
-* **`ransom`**: Fidye yazılımı notu simülasyonu yapar.
-* **`exif`**: Fotoğraflardan gizli GPS konumunu çıkarır.
-* **`encrypt` / `decrypt`**: Dosyaları AES-128 ile şifreler.
-* **`rsa`**: Güvenli iletişim için anahtar çifti üretir.
+| Komut | Kullanım Örneği | Nasıl Çalışır? |
+| :--- | :--- | :--- |
+| **`ble`** | `ble` | **Bluetooth LE (Low Energy) Radarını** başlatır. Etraftaki IoT cihazlarını, AirTag’leri ve Akıllı Saatleri sinyal gücüne göre listeler. |
+| **`emf`** | `emf` | **EMF Dedektörü:** Telefonun manyetik sensörünü (pusula) kullanarak, çevredeki gizli kamera veya mikrofonların yaydığı manyetik alanı tespit eder. |
+| **`stego`** | `stego hide resim.png mesaj` | Bir resim dosyasının sonuna gizli metin ekler ve okur. |
+| **`exif`** | `exif foto.jpg` | Bir fotoğrafın içine gömülü GPS koordinatlarını, cihaz modelini ve çekim tarihini çıkarır (Adli Bilişim). |
+| **`mask`** | `mask site.com secure` | Oltalama (Phishing) testleri için maskelenmiş URL üretir. |
+
+### 4. 🧅 Dark Web & OSINT (İstihbarat)
+
+| Komut | Kullanım Örneği | Açıklama |
+| :--- | :--- | :--- |
+| **`onion`** | `onion hiddenwiki.onion` | `.onion` sitelerinin içeriğini **Tor2Web Gateway** üzerinden çekerek terminalde gösterir. |
+| **`market`** | `market bitcoin` | Dark Web arama motorlarında (`Ahmia.fi`) arama yapar. |
+| **`checkuser`** | `checkuser user_ad` | **Sherlock Modülü:** 25'ten fazla popüler platformda kullanıcı adını arar. |
+| **`email`** | `email mail@mail.com` | E-postanın Gravatar profilini ve geçerliliğini kontrol eder. |
+| **`payload`** | `payload 10.0.0.1 4444 bash` | Hedef sistemlere sızmak için gerekli **Reverse Shell** kodlarını (Bash, Python, Netcat) üretir. |
+| **`rsa`** | `rsa` | 2048-bit Public ve Private anahtar çifti üretir. |
 
 ---
 
-## 📥 Kurulum
+## ⚠️ Güvenlik ve Yasal Uyarı
 
-1.  GitHub **Releases** sayfasından en son `app-release.apk` dosyasını indirin.
-2.  Android cihazınızda "Bilinmeyen Kaynaklardan Yükle" iznini verin.
-3.  Uygulamayı yükleyin ve açın.
-4.  Komut listesi için `help` yazın.
+Bu uygulama, zararlı kod üretme simülasyonları (`payload`, `eicar`) ve ağ testleri yaptığı için, telefonunuzdaki **Google Play Protect** veya diğer Antivirüs yazılımları tarafından **"Truva Atı (Trojan)"** olarak algılanabilir.
 
----
-
-## ⚠️ Yasal Uyarı (Disclaimer)
-
-**Karage Security Lab**, tamamen **EĞİTİM**, **AĞ YÖNETİMİ** ve **GÜVENLİK ARAŞTIRMALARI** amacıyla geliştirilmiştir.
-
-* **Yetkili Kullanım:** Bu araçları yalnızca kendi ağınızda veya yazılı izniniz olan sistemlerde kullanmalısınız.
-* **Sorumluluk Reddi:** Geliştirici, uygulamanın yasa dışı amaçlarla kullanılmasından sorumlu tutulamaz. Kullanıcı, tüm eylemlerinden kendisi sorumludur.
-* **Virüs Uyarısı Hakkında:** Uygulama içerisinde saldırı simülasyonu ve payload üretici modüller bulunduğu için, Google Play Protect veya Antivirüs yazılımları uyarı verebilir. Bu beklenen bir durumdur ve uygulamanın doğası gereğidir.
+* **Bu bir Yanlış Pozitiftir (False Positive).** Uygulama, zararlı yazılım değildir; zararlı yazılımın kodunu ürettiği için tetiklenir.
+* Uygulama, verilerinizi hiçbir sunucuya göndermez. Tüm işlemler cihazınızda lokal olarak yapılır.
+* Kullanımdan önce **Yasal Sorumluluk Reddi** ve **Eğitim Amaçlı Kullanım** kurallarını okuyun.
 
 ---
 
-### 👨‍💻 Geliştirici
+### 👨‍💻 Kurulum ve İletişim
 
-**Mehmet Karagülle (Karage Yazilim)**
-*Geleceği Kodluyoruz, Güvenliği İnşa Ediyoruz.*
+1.  Proje kodlarını Android Studio'ya import edin.
+2.  **Build** menüsünden **Signed APK** oluşturun.
+3.  Telefonunuzda **"Bilinmeyen Kaynaklardan Yükle"** izni ile yükleyin.
+
+*Geliştirici: Mehmet Karagülle (Karage Yazilim)*
