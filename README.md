@@ -1,83 +1,125 @@
-# 🛡️ Karage Security Lab v7.0 [ARMAGEDDON SUITE]
+# 🛡️ Karage Security Lab (KSL) - Ultimate Android Pentest Suite
 
-**Android Cihazlar İçin Root Yetkisi Gerektirmeyen, Gelişmiş Siber Güvenlik ve İstihbarat Terminali.**
+> **"The Mobile Cyber Warstation. No Root. No Limits."**
+> *Android için Geliştirilmiş, Root Gerektirmeyen Yeni Nesil Hibrit Sızma Testi ve Ağ Güvenliği Laboratuvarı.*
 
-[![Java](https://img.shields.io/badge/Language-Java-orange?style=for-the-badge&logo=java)]() [![Platform](https://img-shields.io/badge/Platform-Android-green?style=for-the-badge&logo=android)]() [![Root](https://img.shields.io/badge/Root-Not%20Required-brightgreen?style=for-the-badge)]() [![Tools](https://img.shields.io/badge/Tools-40%2B%20Modules-blue?style=for-the-badge)]()
-
-## 💡 Proje Mimarisi ve Güç Çekirdeği
-
-Karage Security Lab, piyasadaki basit terminal uygulamalarından farklıdır. Uygulamanın gücü, **Java Socket** motorunu, Android sistem API'leriyle birleştiren hibrit mimarisinden gelir:
-
-* **⚡ Multi-Threading (Çoklu İş Parçacığı):** Ağ taraması (`portscan`, `flood`) gibi zaman alan tüm işlemler, 50 iş parçacığına sahip (`ExecutorService`) bir havuza gönderilir. Bu, uygulamanın **asla donmamasını** ve saniyeler içinde binlerce işlem yapmasını garanti eder.
-* **🔌 Native Motor:** Tüm ağ ve web istekleri, harici bir binary dosyaya ihtiyaç duymadan, saf Java `Socket` ve `HttpURLConnection` sınıfları üzerinden yönetilir.
-* **Procfs Erişimi:** Termux gibi, Android'in alt katmanındaki `/proc/net/arp` gibi sistem dosyalarını okuyarak gizli ağ bilgilerini çeker.
+![Platform](https://img.shields.io/badge/Platform-Android%207.0%2B-green?logo=android&style=for-the-badge)
+![Language](https://img.shields.io/badge/Tech-Java%20%7C%20Python%20%7C%20Shell-orange?logo=java&style=for-the-badge)
+![Engine](https://img.shields.io/badge/Engine-Hybrid%20Core-blue?style=for-the-badge)
+![Security](https://img.shields.io/badge/Focus-Red%20Team%20%26%20Bug%20Bounty-red?logo=kalilinux&style=for-the-badge)
+![License](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)
 
 ---
 
-## 🛠️ Modüller ve Kullanım Kılavuzu
+## 📖 Proje Hakkında (Overview)
 
-Uygulama, saldırı ve savunma senaryolarına yönelik 10 ana modüle ayrılmıştır.
+**Karage Security Lab (KSL)**, etik hackerlar, güvenlik araştırmacıları ve sistem yöneticileri için özel olarak tasarlanmış, **Android tabanlı bir sızma testi (Pentest) ve keşif platformudur.**
 
-### 1. ⚔️ Ağ ve Hardcore Saldırıları
+Benzerlerinin aksine KSL, cihazınızı rootlamanıza gerek kalmadan, **Saf Java Soketleri** ve **Termux Köprüsü (Bridge)** teknolojisini birleştirerek gerçek bilgisayar gücünde taramalar yapmanızı sağlar. Cebinizde bir **Kali Linux** taşıyor gibi hissedeceksiniz.
 
-| Komut | Kullanım Örneği | Nasıl Çalışır? (Teknik Açıklama) |
-| :--- | :--- | :--- |
-| **`portscan`** | `portscan 192.168.1.1` | Hedef IP'de kritik portlara çoklu thread üzerinden TCP bağlantı isteği atar (`Socket.connect`). |
-| **`wol`** | `wol AA:BB:CC:DD:EE:FF` | Yerel ağa UDP "Magic Packet" göndererek kapalı bir bilgisayarı uzaktan başlatır. |
-| **`nc`** | `nc 4444` | Telefonu bir **TCP Sunucusu** yapar (`ServerSocket`) ve dışarıdan gelen bağlantıları dinler. |
-| **`arp`** | `arp` | Cihazın önbelleğindeki (ARP Cache) diğer cihazların IP ve MAC adreslerini listeler. |
-| **`flood`** | `flood hedef.com` | Hedef siteye eşzamanlı HTTP/S GET istekleri göndererek Yük Testi (Stress Test) yapar. |
-| **`trace`** | `trace google.com` | Paketin hedefe giderken izlediği tüm hop noktalarını kaydeder. |
-
-### 2. 🛡️ Web Zafiyet Avcılığı
-
-| Komut | Kullanım Örneği | Nasıl Çalışır? |
-| :--- | :--- | :--- |
-| **`takeover`** | `takeover sub.site.com` | Subdomain Takeover zafiyetini (CNAME kaydının boşta kalmasını) kontrol eder. |
-| **`blindsqli`** | `blindsqli site.com?id=1` | Sunucuya `SLEEP(5)` (uyuma) komutu enjekte eder. Sunucunun gecikmeli yanıt verip vermediğini analiz eder. |
-| **`lfi`** | `lfi site.com?page=` | **Local File Inclusion** zafiyetini arar (`../../etc/passwd` payloadları dener). |
-| **`waf`** | `waf site.com` | Hedef sitenin Cloudflare, ModSecurity gibi bir **Güvenlik Duvarı** tarafından korunup korunmadığını HTTP yanıt kodları ile tespit eder. |
-| **`cms`** | `cms site.com` | Sitenin **WordPress, Joomla** veya **Drupal** olup olmadığını kaynak koddan analiz eder. |
-| **`vuln`** | `vuln site.com` | Sunucuda unutulmuş kritik dosyaları (`.env`, `.git/config`, `backup.sql`) arar. |
-| **`buster`** | `buster site.com` | Sitedeki gizli dizinleri ve klasörleri bulur. |
-
-### 3. 🔦 Spy & Fiziksel Güvenlik
-
-| Komut | Kullanım Örneği | Nasıl Çalışır? |
-| :--- | :--- | :--- |
-| **`ble`** | `ble` | **Bluetooth LE (Low Energy) Radarını** başlatır. Etraftaki IoT cihazlarını, AirTag’leri ve Akıllı Saatleri sinyal gücüne göre listeler. |
-| **`emf`** | `emf` | **EMF Dedektörü:** Telefonun manyetik sensörünü (pusula) kullanarak, çevredeki gizli kamera veya mikrofonların yaydığı manyetik alanı tespit eder. |
-| **`stego`** | `stego hide resim.png mesaj` | Bir resim dosyasının sonuna gizli metin ekler ve okur. |
-| **`exif`** | `exif foto.jpg` | Bir fotoğrafın içine gömülü GPS koordinatlarını, cihaz modelini ve çekim tarihini çıkarır (Adli Bilişim). |
-| **`mask`** | `mask site.com secure` | Oltalama (Phishing) testleri için maskelenmiş URL üretir. |
-
-### 4. 🧅 Dark Web & OSINT (İstihbarat)
-
-| Komut | Kullanım Örneği | Açıklama |
-| :--- | :--- | :--- |
-| **`onion`** | `onion hiddenwiki.onion` | `.onion` sitelerinin içeriğini **Tor2Web Gateway** üzerinden çekerek terminalde gösterir. |
-| **`market`** | `market bitcoin` | Dark Web arama motorlarında (`Ahmia.fi`) arama yapar. |
-| **`checkuser`** | `checkuser user_ad` | **Sherlock Modülü:** 25'ten fazla popüler platformda kullanıcı adını arar. |
-| **`email`** | `email mail@mail.com` | E-postanın Gravatar profilini ve geçerliliğini kontrol eder. |
-| **`payload`** | `payload 10.0.0.1 4444 bash` | Hedef sistemlere sızmak için gerekli **Reverse Shell** kodlarını (Bash, Python, Netcat) üretir. |
-| **`rsa`** | `rsa` | 2048-bit Public ve Private anahtar çifti üretir. |
+### ⚡ Neden KSL?
+* **Root Yok:** Cihaz garantisini bozmadan tam yetki.
+* **Hibrit Motor:** Java'nın hızı + Python scriptlerinin esnekliği.
+* **Otomatik Raporlama:** Her tarama anlık olarak loglanır ve PDF'e dönüştürülebilir.
+* **40+ Araç:** Keşiften sömürüye (Exploitation) kadar tam kapsamlı arsenal.
 
 ---
 
-## ⚠️ Güvenlik ve Yasal Uyarı
+## 🛠️ Kullanılan Teknolojiler (Tech Stack)
 
-Bu uygulama, zararlı kod üretme simülasyonları (`payload`, `eicar`) ve ağ testleri yaptığı için, telefonunuzdaki **Google Play Protect** veya diğer Antivirüs yazılımları tarafından **"Truva Atı (Trojan)"** olarak algılanabilir.
+Bu proje, yüksek performans ve stabilite için aşağıdaki teknolojilerle inşa edilmiştir:
 
-* **Bu bir Yanlış Pozitiftir (False Positive).** Uygulama, zararlı yazılım değildir; zararlı yazılımın kodunu ürettiği için tetiklenir.
-* Uygulama, verilerinizi hiçbir sunucuya göndermez. Tüm işlemler cihazınızda lokal olarak yapılır.
-* Kullanımdan önce **Yasal Sorumluluk Reddi** ve **Eğitim Amaçlı Kullanım** kurallarını okuyun.
+| Teknoloji | Açıklama |
+| :--- | :--- |
+| **Java (Native Android)** | Uygulamanın ana motoru (Core Engine). UI ve Thread yönetimi. |
+| **Multi-Threading** | `ExecutorService` havuzları ile aynı anda 50+ HTTP isteği ve port taraması. |
+| **Raw Sockets** | `java.net.Socket` kullanılarak yapılan düşük seviyeli port ve ağ taramaları. |
+| **Termux Bridge API** | Android `Intent` sistemi üzerinden Termux terminaline komut gönderme yeteneği. |
+| **Regex Parsing** | HTML kaynak kodundan hassas veri (Email, API Key) madenciliği. |
+| **PDF Generation** | Android `PdfDocument` API ile vektörel rapor oluşturma. |
 
 ---
 
-### 👨‍💻 Kurulum ve İletişim
+## 🚀 Modüller ve Kullanım Rehberi (Arsenal)
 
-1.  Proje kodlarını Android Studio'ya import edin.
-2.  **Build** menüsünden **Signed APK** oluşturun.
-3.  Telefonunuzda **"Bilinmeyen Kaynaklardan Yükle"** izni ile yükleyin.
+KSL terminalini açtığınızda aşağıdaki komutları kullanarak sistemleri analiz edebilirsiniz.
 
-*Geliştirici: Mehmet Karagülle (Karage Yazilim)*
+### 🔴 1. Red Team & Network (Ağ Saldırıları)
+*Yerel ağdaki cihazları keşfetmek ve istemci taraflı açıkları bulmak için.*
+
+| Komut | Kullanım | Açıklama |
+| :--- | :--- | :--- |
+| **`subnet`** | `subnet` | **ARP/Ping Tarayıcı:** WiFi ağındaki diğer cihazları (IP/Hostname) bulur. |
+| **`clickjack`** | `clickjack <url>` | **UI Redress:** Sitenin "Clickjacking" saldırısına açık olup olmadığını test eder. |
+| **`myip`** | `myip` | **WAN Analizi:** Gerçek (Public) IP adresinizi ve ISP bilgisini gösterir. |
+
+### 🕵️ 2. Reconnaissance (Keşif ve İstihbarat)
+*Hedef hakkında pasif ve aktif bilgi toplama.*
+
+| Komut | Kullanım | Açıklama |
+| :--- | :--- | :--- |
+| **`tech`** | `tech <url>` | **Wappalyzer:** Hedefin CMS'ini (WP, Joomla), sunucusunu ve dilini tanır. |
+| **`nmap`** | `nmap <ip>` | **Port Scanner:** Kritik portları (21, 22, 80, 443, 3306 vb.) çok hızlı tarar. |
+| **`dirsearch`** | `dirsearch <url>` | **Dizin Avcısı:** Gizli klasörleri (`/admin`, `/backup`, `.env`) brute-force ile arar. |
+| **`gitrecon`** | `gitrecon <site>` | **GitHub Dork:** GitHub üzerinde sızdırılmış şifreleri ve API keyleri arar. |
+| **`subdomain`** | `subdomain <url>` | **Alt Alan Adı:** Hedefe ait `dev.`, `api.`, `test.` gibi subdomainleri bulur. |
+
+### 💰 3. Hunter Module (Bug Bounty & Veri Madenciliği)
+*Para ödülü kazandıran (P1/P2) kritik açıklar için.*
+
+| Komut | Kullanım | Açıklama |
+| :--- | :--- | :--- |
+| **`takeover`** | `takeover <url>` | **Subdomain Takeover:** Boşa düşmüş bulut servislerini (AWS, Heroku) tespit eder. |
+| **`s3`** | `s3 <domain>` | **Bucket Leaker:** Hedefe ait açık Amazon S3 depolarını ifşa eder. |
+| **`miner`** | `miner <url>` | **Data Scraper:** Kaynak kodda unutulmuş Telefon, Email ve API Key'leri kazır. |
+| **`linkfinder`**| `linkfinder <url>`| **JS Endpoint:** JavaScript dosyaları içindeki gizli API yollarını çıkarır. |
+
+### ☠️ 4. Exploit & Apocalypse (Saldırı ve İmha)
+*Sistemlere sızma ve yetki yükseltme.*
+
+| Komut | Kullanım | Açıklama |
+| :--- | :--- | :--- |
+| **`autopwn`** | `autopwn <url>` | **Zincirleme Saldırı:** Hedefi analiz eder ve otomatik saldırı senaryosu başlatır. |
+| **`sqlmap`** | `sqlmap <url>` | **Blind SQLi:** Veritabanı zafiyetlerini (Time-based) test eder. |
+| **`xss`** | `xss <url>` | **XSS Hunter:** Sayfaya zararlı kod gömerek yansıma (reflection) arar. |
+| **`beef`** | `beef <ip>` | **Hook Generator:** Tarayıcı ele geçirmek için zararlı JS kodu üretir. |
+| **`payload`** | `payload <tür> <ip> <port>`| **Backdoor Factory:** Reverse Shell (Python, Bash, PHP) kodları üretir. |
+
+### 👻 5. Ghost & Evasion (Gizlilik)
+*Güvenlik duvarlarını (WAF) atlatma.*
+
+| Komut | Kullanım | Açıklama |
+| :--- | :--- | :--- |
+| **`bypass`** | `bypass <url>` | **IP Spoofing:** 403 yasaklı sayfalara girmek için sahte IP başlıkları gönderir. |
+| **`tamper`** | `tamper <tür> <kod>` | **WAF Encoder:** Saldırı kodunu şifreler (URL, Double, Hex). |
+| **`cors`** | `cors <url>` | **CORS Misconfig:** Cross-Origin veri sızıntısı açıklarını test eder. |
+
+### 🛠️ 6. System & Reporting (Sistem)
+| Komut | Kullanım | Açıklama |
+| :--- | :--- | :--- |
+| **`pdf`** | `pdf` | **Raporlama:** Tüm oturumu profesyonel bir PDF raporu olarak kaydeder. |
+| **`termux`** | `termux <cmd>` | **Bridge:** Komutu Termux uygulamasına gönderir ve çalıştırır. |
+| **`sysinfo`** | `sysinfo` | **Dashboard:** RAM, CPU ve Android sürüm bilgisini gösterir. |
+
+
+---
+
+## ⚠️ Yasal Uyarı (Disclaimer)
+
+**Karage Security Lab (KSL)**, tamamen **eğitim**, **ağ yönetimi** ve **yetkili güvenlik testleri** amacıyla geliştirilmiştir.
+
+* Bu yazılımı, sahibi olmadığınız veya test izniniz olmayan sistemlerde kullanmak suçtur.
+* Geliştirici (**Karage Yazılım**), bu aracın yasa dışı kullanımından doğacak zararlardan sorumlu tutulamaz.
+* **"Watch the Web. Silent Hunter."**
+* Uygulamayı kurarken virüs veya Turuvaatı uyarısı verebilir bunun nedeni içinde çalışan scriptlerdir herhangibi bir virüs yoktur açık kaynak kodludur kodları inceleyebilirsiniz.
+
+---
+
+### 👨‍💻 Geliştirici & İletişim
+
+**Mehmet Karagülle (Karage Yazilim)**
+* Cyber Security Researcher & Android Developer
+* [GitHub Profilim](https://github.com/MehmetKg)
+
+---
+<p align="center">Made with ❤️ and ☕ in Kayseri/Turkey</p>
