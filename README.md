@@ -1,124 +1,120 @@
-# 🛡️ Karage Security Lab (KSL) - Ultimate Android Pentest Suite
+# 🛡️ Karage Security Lab (KSL) - Ultimate Android Pentest Suite v6.0
 
-> **"The Mobile Cyber Warstation. No Root. No Limits."**
+> **"Mobile Cyber Warstation. No Root. No Limits."**
 >
-> *Android cihazlar için geliştirilmiş, Root gerektirmeyen yeni nesil Hibrit Siber Güvenlik, Sızma Testi ve Kırmızı Takım (Red Team) Laboratuvarı.*
+> *Android Cihazlar İçin Geliştirilmiş; Root Gerektirmeyen Hibrit Sızma Testi, Kırmızı Takım (Red Team) ve Siber İstihbarat (OSINT) Laboratuvarı.*
 
 ![Platform](https://img.shields.io/badge/Platform-Android%207.0%2B-green?logo=android&style=for-the-badge)
-![Language](https://img.shields.io/badge/Language-Java%20%7C%20Python%20%7C%20Shell-orange?logo=java&style=for-the-badge)
-![Security](https://img.shields.io/badge/Focus-Red%20Team%20%26%20Bug%20Bounty-red?logo=kalilinux&style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-v5.0%20Legend-blue?style=for-the-badge)
+![Security](https://img.shields.io/badge/Focus-Red%20Team%20%26%20Pentest-red?logo=kalilinux&style=for-the-badge)
+![Engine](https://img.shields.io/badge/Engine-Hybrid%20Core%20(Java)-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-v6.0%20Ultimate-purple?style=for-the-badge)
+
+---
 
 ## 📖 Proje Hakkında (Overview)
 
-**Karage Security Lab (KSL)**, etik hackerlar, güvenlik araştırmacıları, sistem yöneticileri ve Bug Bounty avcıları için tasarlanmış kapsamlı bir **mobil siber güvenlik platformudur.**
+**Karage Security Lab (KSL)**, siber güvenlik uzmanları, etik hackerlar ve bug bounty avcıları için tasarlanmış, **hepsi bir arada (All-in-One)** mobil siber güvenlik platformudur.
 
-Standart araçların aksine KSL, cihazınızı rootlamanıza (garanti dışı bırakmanıza) gerek kalmadan, **Saf Java Soketleri** ve **Termux Köprüsü (Bridge)** teknolojisini birleştirerek gerçek bir bilgisayar gücünde tarama ve analiz yapmanızı sağlar.
+KSL, sıradan terminal emülatörlerinden farklıdır. Cihazınızı rootlamanıza (garanti dışı bırakmanıza) gerek kalmadan, **Saf Java Soketleri** ve **Multi-Thread** mimarisini kullanarak masaüstü araçlarının (Nmap, SQLMap, Hydra) gücünü cebinize getirir.
 
-**Öne Çıkan Özellikler:**
-* 🚀 **Hibrit Motor:** Java'nın hızı ve Python scriptlerinin esnekliği tek çatı altında.
-* 🔒 **Root Gerektirmez:** Herhangi bir Android cihazda (telefon/tablet) çalışır.
-* 📄 **Otomatik Raporlama:** Yapılan taramaları anlık olarak loglar ve profesyonel PDF raporuna dönüştürür.
-* 🛠️ **50+ Araç:** OSINT, Ağ Analizi, Web Pentest, Kriptografi ve Sosyal Mühendislik modülleri.
+### ⚡ Neden KSL?
+* 🚀 **Hibrit Motor:** Java'nın hızı ile Python scriptlerinin esnekliği bir arada.
+* 🔒 **Root Gerektirmez:** Herhangi bir Android cihazda çalışır.
+* 📊 **Görsel Raporlama:** Taramaları **PDF** veya Renkli **HTML** formatında raporlar.
+* 🌍 **Global İstihbarat:** Shodan, Dark Web ve OSINT araçlarıyla dünyayı tarar.
+* 🤖 **Otomasyon:** Tek komutla (`fullscan`) hedef üzerinde tam saldırı zinciri başlatır.
 
 ---
 
 ## 📥 Kurulum (Installation)
 
-KSL'yi kullanmaya başlamak için karmaşık kurulumlara ihtiyacınız yok.
-
-1.  **APK İndir:** Bu reponun **[Releases](https://github.com/kullaniciadi/projeadi/releases)** kısmından en güncel `app-release.apk` dosyasını indirin.
-2.  **Yükle:** İndirdiğiniz dosyayı telefonunuza kurun. (Bilinmeyen kaynaklara izin verin).
-3.  **İzinler:** Uygulamayı ilk açtığınızda dosya kaydetme izni isteyecektir. Raporlama (PDF) özelliği için **İzin Ver** demeniz gerekmektedir.
-4.  **Başlat:** `help` yazarak tüm komutları görün.
+1.  **İndir:** Bu reponun **[Releases](https://github.com/kullaniciadi/projeadi/releases)** kısmından `app-release.apk` dosyasını indirin.
+2.  **Yükle:** APK dosyasını kurun (Bilinmeyen kaynaklara izin verin).
+3.  **İzin Ver:** Uygulamayı ilk açtığınızda **Depolama İzni** isteyecektir. Raporları kaydedebilmek için izin verin.
+4.  **Başlat:** Terminale `help` yazarak cephaneliği görüntüleyin.
 
 ---
 
-## 💻 Kullanım Rehberi (Usage Guide)
+## 💻 Modüller ve Kullanım (Arsenal)
 
-Uygulama açıldığında sizi bir **Terminal Arayüzü** karşılar. Komutları buraya yazıp `EXEC` butonuna basarak (veya klavyeden enter) çalıştırırsınız.
+KSL v6.0, **50'den fazla** özelleştirilmiş araç içerir. İşte kategorilerine göre kullanım rehberi:
 
-### 🕵️ 1. OSINT & Sosyal Mühendislik Modülleri
-*Hedef kişi veya kurum hakkında pasif bilgi toplama ve farkındalık testleri.*
+### 🚀 1. Otomasyon & Saldırı (Automation)
+*Tek komutla karmaşık saldırı senaryolarını yönetin.*
 
+| Komut | Kullanım Örneği | Açıklama |
+| :--- | :--- | :--- |
+| **`fullscan`** | `fullscan site.com` | **Tam Otomatik Tarama:** Sırasıyla Whois, Nmap, Spider, SQLi ve Brute-Force saldırılarını gerçekleştirir. |
+| **`autopwn`** | `autopwn site.com` | **Akıllı Saldırı:** Hedefin CMS'ini (WP, Joomla) tanır ve ona özel exploit dener. |
+| **`stress`** | `stress site.com` | **Stres Testi:** Hedef sunucuya HTTP Flood yaparak yük altındaki dayanıklılığını ölçer. |
+
+### 🌎 2. Global İstihbarat (OSINT)
+*Dünya genelinde pasif bilgi toplama.*
+
+| Komut | Kullanım Örneği | Açıklama |
+| :--- | :--- | :--- |
+| **`shodan`** | `shodan <key> webcam` | **Shodan Arama:** Shodan API kullanarak dünyadaki açık kameraları ve sunucuları arar. |
+| **`dark`** | `dark kiralik hacker` | **Dark Web Search:** Tor ağına girmeden `.onion` sitelerinde arama yapar. |
+| **`sherlock`** | `sherlock username` | **Kullanıcı Avı:** 25+ Sosyal medya platformunda kullanıcı adı taraması yapar. |
+| **`whois`** | `whois google.com` | **Domain Analizi:** API kullanmadan (Raw Socket) domain sahiplik bilgilerini çeker. |
+| **`reputation`**| `reputation 8.8.8.8`| **IP İtibar:** IP adresinin kara listede olup olmadığını sorgular. |
+
+### ⚔️ 3. Web Hacking & Exploit
+*Web uygulamalarındaki kritik açıkları bulun ve istismar edin.*
+
+| Komut | Kullanım Örneği | Açıklama |
+| :--- | :--- | :--- |
+| **`sqlmap`** | `sqlmap site.com` | **SQL Injection:** URL'e otomatik parametre ekler ve veritabanını (`user`, `db`) çeker. |
+| **`xss`** | `xss site.com` | **XSS Hunter:** Reflected XSS açıklarını tespit eder. |
+| **`lfi`** | `lfi site.com` | **Dosya Okuma:** Sunucudaki `/etc/passwd` gibi dosyaları okumaya çalışır (LFI). |
+| **`paramhunter`**| `paramhunter site.com`| **Gizli Parametre:** `debug`, `admin` gibi gizli URL parametrelerini keşfeder. |
+| **`beef`** | `beef 192.168.1.5` | **Hook Generator:** Tarayıcı ele geçirmek için zararlı JavaScript kodu üretir. |
+
+### 📡 4. Red Team & Ağ Savaşları
+*Ağ üzerindeki cihazları ele geçirin ve servisleri durdurun.*
+
+| Komut | Kullanım Örneği | Açıklama |
+| :--- | :--- | :--- |
+| **`slowloris`** | `slowloris 192.168.1.5` | **DoS Saldırısı:** Hedef sunucuyu yavaş bağlantılarla kilitleyerek hizmet veremez hale getirir. |
+| **`ftphydra`** | `ftphydra 192.168.1.1` | **FTP Kırıcı:** FTP servisine kaba kuvvet (Brute-Force) saldırısı yapar. |
+| **`subnet`** | `subnet` | **Ağ Haritası:** Yerel ağdaki (WiFi) tüm cihazları TCP Connect ile tespit eder. |
+| **`clickjack`** | `clickjack site.com` | **UI Redress:** Sitenin Clickjacking saldırısına açık olup olmadığını test eder. |
+
+### 📱 5. Adli Bilişim (Forensics) & Sistem
+*Dosya analizi, malware tespiti ve sistem sağlığı.*
+
+| Komut | Kullanım Örneği | Açıklama |
+| :--- | :--- | :--- |
+| **`metadata`** | `metadata /sdcard/img.jpg`| **EXIF Analizi:** Fotoğraflardan GPS konumu ve cihaz bilgisini çıkarır. |
+| **`apkscan`** | `apkscan` | **Uygulama Analizi:** Telefonda yüklü riskli (Kamera/SMS izni olan) uygulamaları listeler. |
+| **`qrvenom`** | `qrvenom site.com` | **Zehirli QR:** Sosyal mühendislik için yönlendirmeli QR kod üretir. |
+| **`forensic`** | `forensic dosya.exe` | **Magic Number:** Dosya uzantısı değiştirilse bile gerçek türünü (EXE, JPG, PDF) bulur. |
+
+### 🛠️ 6. Raporlama & Araçlar
 | Komut | Kullanım | Açıklama |
 | :--- | :--- | :--- |
-| **`sherlock`** | `sherlock <kullanici_adi>` | **Kullanıcı Avı:** 25+ sosyal medya platformunda (Instagram, Twitter, GitHub vb.) verilen kullanıcı adını tarar. |
-| **`mailcheck`** | `mailcheck <email>` | **E-posta Analizi:** Mail formatını doğrular ve Gravatar profil resmi olup olmadığını (aktiflik durumu) kontrol eder. |
-| **`phone`** | `phone <+905xxxx>` | **Telefon Analizi:** Numaranın hangi ülkeye ait olduğunu bulur ve WhatsApp/Telegram direkt linklerini üretir. |
-| **`reputation`** | `reputation <ip>` | **IP İtibar Kontrolü:** Bir IP adresinin kara listede (blacklist) olup olmadığını AbuseIPDB üzerinden sorgular. |
-| **`fakeid`** | `fakeid` | **Sahte Kimlik:** Sosyal mühendislik senaryoları için rastgele isim, adres, TC ve Kredi Kartı numarası üretir. |
-| **`phish`** | `phish <site.com>` | **Oltalama Testi:** Eğitim amaçlı benzer domain (Typosquatting) varyasyonları üretir. |
-
-### 📡 2. Red Team & Ağ Analizi (Network)
-*Yerel ve dış ağlardaki cihazları keşfetmek ve analiz etmek için.*
-
-| Komut | Kullanım | Açıklama |
-| :--- | :--- | :--- |
-| **`subnet`** | `subnet` | **Ağ Tarayıcı:** Bağlı olduğunuz WiFi ağındaki diğer cihazları (IP ve Hostname) ARP/Ping ile tespit eder. |
-| **`clickjack`** | `clickjack <url>` | **Clickjacking Testi:** Sitenin bir `iframe` içinde çalıştırılıp çalıştırılamayacağını (UI Redress açığı) test eder. |
-| **`netinfo`** | `netinfo <site.com>` | **Hedef Analizi:** Hedef sitenin gerçek IP adresini, Sunucu Lokasyonunu ve Servis Sağlayıcısını (ISP) bulur. |
-| **`myip`** | `myip` | **Kimlik Kontrolü:** Kendi dış (Public) IP adresinizi gösterir. |
-
-### ⚔️ 3. Saldırı & İstismar (Attack & Exploit)
-*Sistemlerdeki güvenlik açıklarını doğrulamak için (Sadece yetkili olduğunuz sistemlerde kullanın).*
-
-| Komut | Kullanım | Açıklama |
-| :--- | :--- | :--- |
-| **`autopwn`** | `autopwn <url>` | **Otomatik Saldırı:** Hedefin teknolojisini (WP, Joomla) tanır ve uygun saldırı zincirini otomatik başlatır. |
-| **`sqlmap`** | `sqlmap <url?id=1>` | **SQL Enjeksiyonu:** URL parametrelerinde `Time-Based Blind SQLi` zafiyeti arar. |
-| **`xss`** | `xss <url?q=test>` | **XSS Tarayıcı:** URL parametrelerine zararlı JS kodu (`<script>`) enjekte ederek yansıma arar. |
-| **`stress`** | `stress <url>` | **Yük Testi:** Hedef sunucuya çoklu HTTP isteği göndererek dayanıklılığını ölçer (Stres Testi). |
-| **`payload`** | `payload python <ip> <port>` | **Backdoor Üretici:** Hedef sisteme sızmak için Reverse Shell kodları (Python, Bash, PHP) üretir. |
-
-### 🐞 4. Keşif & Bug Bounty (Recon)
-*Web uygulamalarındaki gizli dosyaları ve yapılandırma hatalarını bulmak için.*
-
-| Komut | Kullanım | Açıklama |
-| :--- | :--- | :--- |
-| **`tech`** | `tech <url>` | **Teknoloji Tespiti:** Sitenin kullandığı CMS, Sunucu (Nginx/Apache) ve Yazılım Dillerini tespit eder. |
-| **`miner`** | `miner <url>` | **Veri Madencisi:** Kaynak kod içine gizlenmiş API Key, Email ve Telefon numaralarını regex ile kazır. |
-| **`dirsearch`** | `dirsearch <url>` | **Dizin Avcısı:** `admin`, `backup`, `.env`, `config` gibi kritik dosyaları brute-force ile arar. |
-| **`takeover`** | `takeover <sub.site.com>` | **Subdomain Takeover:** Boşa düşmüş bulut servislerini (Heroku, AWS, GitHub Pages) kontrol eder. |
-| **`s3`** | `s3 <domain>` | **Bucket Leaker:** Hedefe ait, yanlış yapılandırılmış Amazon S3 depolarını ifşa eder. |
-
-### 👻 5. Gizlilik & Atlatma (Stealth)
-*Güvenlik duvarlarını (WAF) aşmak ve iz gizlemek için.*
-
-| Komut | Kullanım | Açıklama |
-| :--- | :--- | :--- |
-| **`bypass`** | `bypass <url>` | **403 Bypass:** Yasaklı sayfalara erişmek için `X-Forwarded-For` gibi başlıklarla IP Spoofing dener. |
-| **`tamper`** | `tamper <tip> <kod>` | **WAF Encoder:** Saldırı kodlarını şifreleyerek (URL, Double URL, Hex) WAF'tan kaçırır. |
-| **`cors`** | `cors <url>` | **CORS Testi:** Siteler arası veri paylaşımı (Cross-Origin) yapılandırma hatalarını test eder. |
-| **`wayback`** | `wayback <site.com>` | **Zaman Makinesi:** Sitenin geçmişini tarayarak silinmiş ancak arşivlenmiş dosyaları bulur. |
-
-### 🛠️ 6. Sistem & Araçlar (System Tools)
-| Komut | Kullanım | Açıklama |
-| :--- | :--- | :--- |
-| **`pdf`** | `pdf` | **Raporla:** Tüm terminal oturumunu ve tarama sonuçlarını **İndirilenler** klasörüne PDF olarak kaydeder. |
-| **`rootcheck`** | `rootcheck` | **Güvenlik:** Cihazın rootlu olup olmadığını kontrol eder. |
-| **`storage`** | `storage` | **Kaynaklar:** Cihazın RAM, Disk ve İşlemci kullanım durumunu gösterir. |
-| **`termux`** | `termux <komut>` | **Bridge:** Komutu cihazdaki Termux uygulamasına gönderir ve çalıştırır. |
+| **`html`** | `html` | **Renkli Rapor:** Tüm sonuçları Matrix temalı, renkli bir HTML dosyası olarak kaydeder. |
+| **`pdf`** | `pdf` | **Resmi Rapor:** Sonuçları çok sayfalı PDF dökümanı olarak kaydeder. |
+| **`rootcheck`**| `rootcheck` | **Root Kontrol:** Cihazın root durumunu analiz eder. |
 
 ---
 
 ## ⚠️ Yasal Uyarı (Disclaimer)
 
-**Karage Security Lab (KSL)**, tamamen **eğitim**, **ağ yönetimi** ve **yetkili güvenlik testleri (Pentest)** amacıyla geliştirilmiştir.
+**Karage Security Lab (KSL)**, yalnızca **eğitim**, **ağ yönetimi** ve **yetkili güvenlik testleri (Pentest)** amacıyla geliştirilmiştir.
 
-* ❌ Bu yazılımı, sahibi olmadığınız veya yazılı izniniz olmayan sistemler üzerinde kullanmak yasa dışıdır ve suç teşkil eder.
+* ❌ Bu yazılımı, sahibi olmadığınız veya yazılı izniniz olmayan sistemler üzerinde kullanmak **yasa dışıdır** ve suç teşkil eder.
 * 🛡️ Geliştirici (**Karage Yazılım**), bu aracın kötü niyetli kullanımından doğacak hiçbir zarardan sorumlu tutulamaz. Kullanıcı, tüm eylemlerinden kendisi sorumludur.
 
 ---
 
 ## 🏷️ Etiketler (SEO Keywords)
-`android pentest tool`, `mobile hacking`, `siber güvenlik`, `sızma testi`, `network scanner`, `bug bounty tool`, `termux alternative`, `sqlmap android`, `red team tools`, `yerli yazılım`, `rootless hacking`, `white hat hacker`, `karage security lab`.
+`android pentest framework` `mobile hacking tools` `sqlmap for android` `shodan client` `dark web search` `red team android` `network scanner` `termux alternative` `automated vulnerability scanner` `siber güvenlik` `sızma testi` `yerli yazılım` `rootless hacking` `slowloris android` `osint tools`
 
 ---
 
 <p align="center">
-  Developed with ❤️ by <b>Karage Yazılım</b>
-  <br>
+  Developed with ❤️ by <b>Karage Yazılım</b><br>
   <i>"Watch the Web. Silent Hunter."</i>
 </p>
