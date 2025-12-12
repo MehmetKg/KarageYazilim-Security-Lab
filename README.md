@@ -134,14 +134,6 @@ KSL v7.0, **65+ Adet** özelleştirilmiş siber güvenlik aracı içerir.
 
 ---
 
-## 📸 Ekran Görüntüleri
-
-| **AI Dashboard & Matrix** | **Physical WiFi/BLE Scan** | **Python & Git Engine** |
-| :---: | :---: | :---: |
-| <img src="screenshots/ai_dash.jpg" width="250" alt="Dashboard"> | <img src="screenshots/hardware.jpg" width="250" alt="Hardware"> | <img src="screenshots/code_engine.jpg" width="250" alt="Engine"> |
-
----
-
 ## 📜 Lisans (License)
 
 Bu proje **GNU General Public License v3.0 (GPLv3)** ile lisanslanmıştır.
@@ -170,3 +162,4 @@ Bu proje **GNU General Public License v3.0 (GPLv3)** ile lisanslanmıştır.
   Developed with 💀 by <b>Karage Yazılım</b><br>
   <i>"Silent Hunter. Digital Ghost."</i>
 </p>
+
