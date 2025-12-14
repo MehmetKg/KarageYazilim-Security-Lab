@@ -1,146 +1,100 @@
-# 🛡️ Karage Security Lab (KSL) - Ultimate Android Pentest Framework v7.0
+# 🛡️ Karage Security Lab (KSL) - Ultimate v7.0
 
-> **"Mobile Cyber Warstation. Hybrid Engine. AI Powered."**
+> **"Mobile Cyber Warstation. Hybrid Engine. Field Ready."**
 >
-> *Android Cihazlar İçin Geliştirilmiş; Hibrit Motor (Java + Python 3.11), Yapay Zeka Destekli (AI) ve Donanım Tabanlı (BLE/NFC/WiFi) Nihai Sızma Testi Laboratuvarı.*
+> *Android cihazlar için geliştirilmiş; Hibrit Motor (Java + Python), Yapay Zeka Destekli, Adli Bilişim (Forensics) ve Saha Gözetim (Surveillance) yeteneklerine sahip Nihai Sızma Testi Laboratuvarı.*
 
-![Platform](https://img.shields.io/badge/Platform-Android%208.0%2B-green?logo=android&style=for-the-badge)
+![Platform](https://img.shields.io/badge/Platform-Android%2010.0%2B-green?logo=android&style=for-the-badge)
 ![Core](https://img.shields.io/badge/Core-Java%20%7C%20Python%203.11-blue?logo=openjdk&style=for-the-badge)
 ![License](https://img.shields.io/badge/License-GNU%20GPLv3-red?logo=gnu&style=for-the-badge)
-![Focus](https://img.shields.io/badge/Focus-Red%20Team%20%26%20Hardware-orange?style=for-the-badge)
-![Version](https://img.shields.io/badge/Version-v7.0%20Ultimate-purple?style=for-the-badge)
+![Focus](https://img.shields.io/badge/Focus-Red%20Team%20%26%20Surveillance-orange?style=for-the-badge)
 
 ---
 
 ## 📖 Proje Hakkında (Overview)
 
-**Karage Security Lab (KSL)**, sıradan terminal emülatörlerinin ötesine geçen, Android ekosistemi için tasarlanmış **"Hepsi Bir Arada" (All-in-One)** siber güvenlik platformudur.
+**Karage Security Lab (KSL)**, sıradan terminal emülatörlerinin ötesine geçen, Android ekosistemi için tasarlanmış **"Hepsi Bir Arada"** siber güvenlik ve siber istihbarat platformudur.
 
-KSL v7.0, **Chaquopy** teknolojisi ile Android çekirdeğine **Python 3.11** entegre eder. Bu sayede harici bir kök erişimine (Root) veya Termux'a ihtiyaç duymadan karmaşık saldırı senaryolarını gerçekleştirebilir. Ayrıca **JGit** motoru ile GitHub projelerini klonlar, **AI Asistanı** ile logları yorumlar ve **Donanım Modülleri** (NFC/BLE) ile fiziksel güvenliği test eder.
+Sadece sanal saldırılar değil, **Fiziksel Güvenlik** ve **Adli Bilişim** üzerine odaklanan modülleriyle (NFC Analizi, Ortam Dinleme, Yüz Tarama, Steganografi) sahada çalışan siber güvenlik uzmanları için bir "İsviçre Çakısı" görevi görür. **Root erişimi zorunlu değildir.**
 
-### ⚡ Temel Özellikler
-* 🐍 **Native Python 3.11:** Uygulama içinde gömülü tam Python motoru.
-* 🧠 **AI Cyber Assistant:** Saldırı çıktılarını analiz eden ve strateji öneren Yapay Zeka.
-* 📡 **Hardware Hacking:** Bluetooth (BLE), WiFi Analyzer ve NFC Kart Dumper.
-* 🐙 **Git Entegrasyonu:** `git clone` ile GitHub depolarını indir ve yönet.
-* 📊 **Live Dashboard:** CPU, RAM ve Ağ trafiğini izleyen Cyberpunk HUD.
-* 🎙️ **Spy Mode:** Ortam dinlemesi ve ağ trafiği analizi.
+### ⚡ Öne Çıkan Özellikler
+* 🐍 **Hibrit Motor:** Android içinde gömülü **Python 3.11** ve **Java** motoru birlikte çalışır.
+* 🕵️‍♂️ **Adli Bilişim (Forensics):** Resimlerden GPS/EXIF verisi çıkarma ve Yüz Arama (Face Search).
+* 📡 **Sinyal İstihbaratı (SIGINT):** Wifi Deauth Saldırı Tespiti, BLE Tarama ve NFC Analizi.
+* 🎙️ **Ortam Gözetimi:** Belirli desibeli geçen sesleri otomatik kaydeden "Audio Sentry" modu.
+* 🔐 **Kriptografi:** Resimlerin içine gizli mesaj saklama (Steganografi).
+* 🚀 **Turbo Recon:** Çok iş parçacıklı (Multi-Threaded) Port ve Ağ Tarayıcı.
 
 ---
 
 ## 💻 Komut Cephaneliği (The Arsenal)
 
-KSL v7.0, **65+ Adet** özelleştirilmiş siber güvenlik aracı içerir.
+KSL v7.0, kategorize edilmiş **70+ Araç** içerir.
 
-### 🛠️ 1. Sistem & Çekirdek (System Core)
-*Dosya sistemi, paket yönetimi ve motor kontrolleri.*
-
-| Komut | Parametre | Açıklama |
-| :--- | :--- | :--- |
-| **`python`** | `<file.py>` | **Hibrit Motor:** Python scriptlerini çalıştırır (Termux veya Dahili Motor). |
-| **`git`** | `clone <url>` | **JGit:** GitHub depolarını `/ksl_repos` dizinine indirir. |
-| **`ls`** | - | Bulunulan dizindeki dosya ve klasörleri listeler. |
-| **`cd`** | `<folder>` | Dizinler arasında geçiş yapar (Geri için: `cd ..`). |
-| **`cat`** | `<file>` | Dosya içeriğini terminalde okur. |
-| **`rm`** | `<file>` | Dosya siler. |
-| **`touch`** | `<file>` | Yeni dosya oluşturur. |
-| **`termux`** | `<cmd>` | Komutu harici Termux uygulamasına yönlendirir. |
-| **`clear`** | - | Terminal ekranını temizler. |
-
-### 🚀 2. Otomasyon & Saldırı (Red Team Automation)
-*Tek komutla hedef üzerinde tam hakimiyet.*
+### 🕵️‍♂️ 1. Fiziksel Gözetim & Casusluk (Surveillance)
+*Saha operasyonları ve fiziksel güvenlik testleri.*
 
 | Komut | Parametre | Açıklama |
 | :--- | :--- | :--- |
-| **`fullscan`** | `<url>` | **Ultimate Scan:** Whois -> Nmap -> Spider -> SQLi -> XSS zincirleme saldırısı. |
-| **`autopwn`** | `<url>` | **Smart Exploit:** Hedef CMS'i (WP/Joomla) tanır ve özel exploit dener. |
-| **`venom`** | `<os> <ip> <p>` | **Payload Gen:** Windows/Linux/Android için FUD Reverse Shell üretir. |
-| **`stress`** | `<url>` | Hedef sunucuya HTTP Flood ile yük/stres testi uygular. |
+| **`spy`** | `start / stop` | **Audio Sentry:** Ortam sesini (dB) dinler. Konuşma algılarsa otomatik ses kaydı başlatır (.3gp). |
+| **`wifiguard`** | `start / stop` | **Deauth Detector:** Wifi bağlantınızı izler. Sizi ağdan atmaya çalışan (Deauth Saldırısı) biri varsa uyarır. |
+| **`listen`** | `start / stop` | Manuel ortam dinlemesi ve ses kaydı. |
+| **`ble`** | - | **Bluetooth Low Energy:** Çevredeki akıllı cihazları (Saat, Kulaklık, Tag) sinyal gücüne göre haritalar. |
+| **`nfc`** | *(Otomatik)* | **Device Fingerprinting:** Dokundurulan kartın (Kredi Kartı/Pasaport) veya telefonun türünü (Android/iOS) analiz eder. |
 
-### 📡 3. Donanım & Fiziksel Ağ (Hardware & Physical)
-*Sanal dünyadan fiziksel dünyaya geçiş.*
-
-| Komut | Parametre | Açıklama |
-| :--- | :--- | :--- |
-| **`ble`** | - | **Bluetooth Low Energy:** Etraftaki akıllı cihazları (Saat, Tag) ve sinyal güçlerini tarar. |
-| **`wifiscan`** | - | **WiFi Analyzer:** Gizli/Açık ağları, şifreleme (WPA2/3) ve mesafeyi ölçer. |
-| **`traffic`** | - | Anlık ağ trafiğini (Upload/Download hızı) izler. |
-| **`listen`** | `start/stop` | **Ortam Dinleme:** Mikrofonu aktif edip ortam sesini `.3gp` olarak kaydeder. |
-| **`subnet`** | - | Yerel ağdaki (LAN) tüm cihazları ve IP adreslerini haritalar. |
-| **`nfc`** | *(Otomatik)* | Kart dokundurulduğunda verileri okur ve PDF olarak kaydeder. |
-
-### ⚔️ 4. Web Hacking & Exploitation
-*Web uygulamalarındaki kritik zafiyetleri avlayın.*
+### 🧩 2. Adli Bilişim & İstihbarat (Forensics & OSINT)
+*Dijital izleri takip edin ve analiz edin.*
 
 | Komut | Parametre | Açıklama |
 | :--- | :--- | :--- |
-| **`sqlmap`** | `<url>` | SQL Enjeksiyonu ile veritabanı tespiti ve veri çekme. |
-| **`xss`** | `<url>` | Cross-Site Scripting (Reflected/Stored) taraması. |
-| **`lfi`** | `<url>` | Local File Inclusion (Sunucu dosyalarını okuma) testi. |
-| **`commix`** | `<url>` | OS Command Injection (Komut Enjeksiyonu) taraması. |
-| **`beef`** | `<ip>` | BeEF Framework için zararlı JavaScript (Hook) üretir. |
-| **`paramhunter`**| `<url>` | Gizli URL parametrelerini (debug, admin, test) bulur. |
-| **`spider`** | `<url>` | Web sitesini gezerek (Crawler) haritasını çıkarır. |
+| **`facesearch`** | - | **Reverse Image Search:** Galeriden seçilen kişinin fotoğrafını analiz eder (GPS/EXIF) ve internette (PimEyes/Google) aratır. |
+| **`stego`** | `hide <msg>` | **Steganografi (Gizle):** Seçilen bir resmin piksellerine gizli bir metin şifreler. |
+| **`stego`** | `read` | **Steganografi (Oku):** Şifreli resmi analiz eder ve gizli mesajı çözer. |
+| **`metadata`** | `<dosya>` | Fotoğrafların içindeki gizli Meta verileri (Konum, Cihaz Modeli, Tarih) çıkarır. |
+| **`apkscan`** | - | Telefondaki riskli ve casus yazılım (Spyware) potansiyeli taşıyan uygulamaları tarar. |
 
-### 🌎 5. OSINT & İstihbarat (Intelligence)
-*İz bırakmadan pasif bilgi toplama.*
+### 🚀 3. Ağ Keşfi & Saldırı (Recon & Attack)
+*Hedef sistemleri haritalayın ve zafiyet arayın.*
 
 | Komut | Parametre | Açıklama |
 | :--- | :--- | :--- |
-| **`shodan`** | `<key> <q>` | **Shodan API:** Dünyadaki açık IP kameraları ve sunucuları arar. |
-| **`sherlock`** | `<user>` | 25+ Sosyal medya platformunda kullanıcı adı taraması. |
-| **`whois`** | `<domain>` | Domain sahiplik bilgileri (Raw Socket, API'siz). |
-| **`dark`** | `<query>` | Tor ağına girmeden Dark Web (.onion) üzerinde arama yapar. |
-| **`phone`** | `<no>` | Telefon numarasından operatör ve konum analizi. |
-| **`mailcheck`** | `<mail>` | E-posta adresi sızıntı ve doğrulama kontrolü. |
-| **`fakeid`** | - | Sosyal mühendislik için sahte kimlik verileri üretir. |
-| **`phish`** | `<domain>` | Oltalama saldırıları için benzer domainleri üretir. |
+| **`portscan`** | `<ip>` | **Turbo Scanner:** 50 Thread ile hedef üzerindeki 100+ kritik portu saniyeler içinde tarar. |
+| **`fullscan`** | `<url>` | Whois -> Nmap -> Subdomain -> CMS Detect zincirleme tam tarama yapar. |
+| **`sqlmap`** | `<url>` | SQL Enjeksiyonu ile veritabanı tespiti ve veri çekme (Python Motoru). |
+| **`wifiscan`** | - | Çevredeki Wifi ağlarını, şifreleme türlerini ve sinyal seviyelerini analiz eder. |
+| **`subnet`** | - | Yerel ağdaki (LAN) diğer cihazları tespit eder (ARP/Ping Sweep). |
 
-### 🐞 6. Bug Bounty & Recon
-*Ödül avcıları için keşif araçları.*
+### 🌐 4. Web İstihbaratı (Web Recon)
+*Web siteleri hakkında derinlemesine bilgi toplayın.*
 
 | Komut | Parametre | Açıklama |
 | :--- | :--- | :--- |
-| **`subdomain`** | `<domain>` | Alt alan adlarını (subdomain) keşfeder. |
-| **`dirsearch`** | `<url>` | Gizli dosya ve klasörleri (admin, backup, .env) tarar. |
-| **`tech`** | `<url>` | Sitede kullanılan teknolojileri (Wappalyzer) tespit eder. |
-| **`gitrecon`** | `<domain>` | GitHub üzerinde sızdırılmış API anahtarlarını arar. |
-| **`s3`** | `<domain>` | Açık Amazon S3 Bucket'larını tarar. |
-| **`takeover`** | `<sub>` | Subdomain Takeover zafiyetini kontrol eder. |
-| **`ssl`** | `<url>` | SSL/TLS sertifika güvenlik analizi. |
+| **`tech`** | `<url>` | **Wappalyzer:** Sitede kullanılan teknolojileri (CMS, Server, Framework) tespit eder. |
+| **`dirsearch`** | `<url>` | Gizli yönetim panellerini ve dosyaları (admin, backup, .env) tarar. |
+| **`headers`** | `<url>` | HTTP Başlıklarını analiz eder ve güvenlik eksiklerini raporlar. |
+| **`subdomain`** | `<domain>` | Hedef sitenin alt alan adlarını (subdomain) keşfeder. |
+| **`whois`** | `<domain>` | Alan adı sahiplik bilgilerini ve sunucu detaylarını çeker. |
 
-### 📱 7. Adli Bilişim & Kriptografi (Forensics)
-*Veri analizi ve şifre kırma.*
+### 🛠️ 5. Sistem & Çekirdek (System Core)
+*Dosya yönetimi ve sistem araçları.*
 
-| Komut | Parametre | Açıklama |
-| :--- | :--- | :--- |
-| **`metadata`** | `<file>` | Fotoğraflardan GPS konumu ve EXIF verilerini çıkarır. |
-| **`apkscan`** | - | Telefondaki riskli (casus) uygulamaları tespit eder. |
-| **`qrvenom`** | `<url>` | Yönlendirmeli/Zararlı QR kod üretir. |
-| **`malware`** | `<url>` | URL'in zararlı yazılım içerip içermediğini tarar. |
-| **`crack`** | `<hash>` | MD5/SHA1 şifrelerini wordlist ile kırmaya çalışır. |
-| **`crypto`** | `<text>` | Şifrelenmiş metnin türünü (Base64, Hex, Hash) analiz eder. |
-| **`base64`** | `<enc/dec>`| Base64 şifreleme ve çözme işlemleri. |
-
-### ⚙️ 8. Sistem & Raporlama
 | Komut | Açıklama |
 | :--- | :--- |
-| **`sysinfo`** | Cihaz donanım ve yazılım detayları. |
-| **`hardware`** | Gelişmiş donanım analizi (Sensörler, Hız Testi). |
-| **`rootcheck`**| Cihazın Root durumunu kontrol eder. |
-| **`netstat`** | Aktif ağ bağlantılarını listeler. |
-| **`pdf`** | Tüm terminal çıktılarını **PDF Raporu** olarak kaydeder. |
-| **`html`** | Tüm terminal çıktılarını **Renkli HTML** olarak kaydeder. |
+| **`sysinfo`** | Cihaz donanım kimliği, işlemci mimarisi ve güvenlik yaması bilgileri. |
+| **`netstat`** | Aktif ağ bağlantılarını ve dinlenen yerel portları listeler. |
+| **`rootcheck`**| Cihazın Root (Kök) erişim durumunu ve güvenliğini kontrol eder. |
+| **`python`** | `.py` uzantılı scriptleri dahili motor veya Termux üzerinden çalıştırır. |
+| **`git`** | GitHub depolarını doğrudan telefona klonlar (`git clone`). |
+| **`pdf`** | Tüm oturum çıktılarını profesyonel bir **PDF Raporu** olarak kaydeder. |
 
 ---
 
-## 📜 Lisans (License)
+## 📥 Kurulum (Installation)
 
-Bu proje **GNU General Public License v3.0 (GPLv3)** ile lisanslanmıştır.
-
-* ✅ **Özgür Yazılım:** Kodu kullanabilir, değiştirebilir ve dağıtabilirsiniz.
-* ✅ **Copyleft:** Eğer bu projeyi değiştirip dağıtırsanız, kaynak kodunu da aynı lisansla (GPLv3) açmak zorundasınız.
-* ❌ **Kapalı Kaynak:** Bu kodları alıp kapalı kaynaklı (ticari gizli) bir projede kullanamazsınız.
+1.  **Releases** sekmesinden en son `v7.0-Ultimate.apk` dosyasını indirin.
+2.  Android cihazınıza yükleyin (Bilinmeyen kaynaklara izin verin).
+3.  **İzinler:** Uygulama açılışta Kamera, Mikrofon, Konum ve Depolama izinleri isteyecektir. Tüm özelliklerin (Spy, Wifi, NFC) çalışması için onaylayın.
+4.  Konsola `help` yazarak başlayın.
 
 ---
 
@@ -148,13 +102,13 @@ Bu proje **GNU General Public License v3.0 (GPLv3)** ile lisanslanmıştır.
 
 **Karage Security Lab (KSL)**, yalnızca **eğitim**, **ağ yönetimi** ve **yetkili güvenlik testleri (Authorized Pentesting)** amacıyla geliştirilmiştir.
 
-* ❌ Bu yazılımı, sahibi olmadığınız veya yazılı izniniz olmayan sistemler üzerinde kullanmak **YASA DIŞIDIR** ve suç teşkil eder.
-* 🛡️ Geliştirici (**Karage Yazılım**), bu aracın kötü niyetli kullanımından doğacak hiçbir maddi/manevi zarardan sorumlu tutulamaz. Kullanıcı, tüm eylemlerinden kendisi sorumludur.
+* ❌ Bu yazılımı, sahibi olmadığınız veya yazılı izniniz olmayan sistemler üzerinde kullanmak **YASA DIŞIDIR**.
+* 🛡️ Geliştirici (**Karage Yazılım**), bu aracın kötü niyetli kullanımından doğacak hiçbir yasal sorumluluğu kabul etmez. Kullanıcı, tüm eylemlerinden kendisi sorumludur.
 
 ---
 
-## 🏷️ SEO & Keywords
-`android pentest framework` `mobile hacking tools` `python 3.11 android` `chaquopy` `nfc card reader` `ble scanner` `wifi analyzer` `sqlmap android` `shodan client` `red team tools` `rootless hacking` `cybersecurity` `siber güvenlik` `yerli yazılım` `git client` `payload generator` `fud` `gplv3`
+## 🏷️ Etiketler (SEO Tags)
+`android pentest framework` `mobile hacking` `cyber surveillance` `steganography android` `nfc analysis` `wifi deauth detector` `audio spy` `face search forensics` `port scanner` `red team tools` `python for android` `chaquopy` `siber güvenlik` `yerli yazılım`
 
 ---
 
@@ -162,4 +116,3 @@ Bu proje **GNU General Public License v3.0 (GPLv3)** ile lisanslanmıştır.
   Developed with 💀 by <b>Karage Yazılım</b><br>
   <i>"Silent Hunter. Digital Ghost."</i>
 </p>
-
